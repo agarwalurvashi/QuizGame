@@ -3,10 +3,11 @@ import { useEffect, useState } from "react"
 export const Timer = () => {
     const [minutes, setSeconds] = useState(0);
 
+    const date = new Date();
+    const addedMinute = date.setMinutes(date.getMinutes() + 1);
 
     const getTime = () => {
-        const date = new Date();
-        const addedMinute = date.setMinutes(date.getMinutes() + 1);
+
         const time = addedMinute - Date.now();
         setSeconds(Math.floor((time/1000)% 60));
     }
